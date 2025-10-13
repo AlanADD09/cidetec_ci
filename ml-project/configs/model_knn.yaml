@@ -1,0 +1,5 @@
+name: "knn"
+params:
+  n_neighbors: 5
+  metric: "euclidean" 
+  weights: "uniform"

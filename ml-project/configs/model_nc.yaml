@@ -1,0 +1,3 @@
+name: "nearest_centroid"
+params:
+  metric: "euclidean"    # "euclidean" or "manhattan"

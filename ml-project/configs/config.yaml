@@ -1,0 +1,4 @@
+data_config: configs/data.yaml
+validation_config: configs/validation.yaml
+eval_config: configs/eval.yaml
+model_config: configs/model_knn.yaml 

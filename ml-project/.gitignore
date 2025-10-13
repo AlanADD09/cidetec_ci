@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+
+# Envs
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data & Experiments
+data/
+experiments/
