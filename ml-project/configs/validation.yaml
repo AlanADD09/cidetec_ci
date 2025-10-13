@@ -1,4 +1,4 @@
-strategy: "holdout"   # "holdout" | "kfold"
+strategy: "loo"   # "holdout" | "kfold"
 holdout:
   test_size: 0.2
   random_state: 42
@@ -8,3 +8,4 @@ kfold:
   stratified: true
   shuffle: true
   random_state: 42
+loo: {}

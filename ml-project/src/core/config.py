@@ -18,6 +18,7 @@ class ValidationConfig:
     strategy: str  # "holdout" | "kfold"
     holdout: dict
     kfold: dict
+    loo: Optional[dict] = None
 
 @dataclass
 class ModelConfig:
