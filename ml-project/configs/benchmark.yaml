@@ -1,0 +1,26 @@
+data_config: configs/data.yaml
+#data_config: configs/data_water.yaml
+#model_config: configs/model_knn.yaml
+model_config: configs/model_nc.yaml
+
+runs:
+  - strategy: repeated_holdout
+    params:
+      test_size: 0.2
+      n_splits: 100         # holdout 100 veces
+      random_state: 42
+      stratified: true
+
+  - strategy: repeated_kfold
+    params:
+      n_splits: 5
+      n_repeats: 100        # 5-fold, repetido 100 veces => 500 folds
+      random_state: 42
+      stratified: true
+
+  - strategy: loo
+    params: {}
+    model_overrides:
+      - { metric: "euclidean", shrink_threshold: null }
+      - { metric: "euclidean", shrink_threshold: 0.1 }
+      - { metric: "euclidean", shrink_threshold: 0.5 }

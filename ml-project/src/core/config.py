@@ -19,6 +19,7 @@ class ValidationConfig:
     holdout: dict
     kfold: dict
     loo: Optional[dict] = None
+    repeated_holdout: Optional[dict] = None
 
 @dataclass
 class ModelConfig:

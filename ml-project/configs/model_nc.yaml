@@ -1,3 +1,5 @@
 name: "nearest_centroid"
 params:
   metric: "euclidean"    # "euclidean" or "manhattan"
+  shrink_threshold: null
+  
