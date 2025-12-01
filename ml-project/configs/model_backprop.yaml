@@ -1,0 +1,13 @@
+name: "backprop"
+params:
+  hidden_layer_sizes: [32, 16]
+  activation: "relu"
+  learning_rate: 0.01
+  max_iter: 300
+  batch_size: 32
+  l2: 0.0001
+  early_stopping: true
+  patience: 25
+  tol: 0.0005
+  random_state: 42
+  verbose: false

@@ -1,7 +1,8 @@
-data_config: configs/data.yaml
-#data_config: configs/data_water.yaml
+# data_config: configs/data.yaml
+data_config: configs/data_water.yaml
 #model_config: configs/model_knn.yaml
-model_config: configs/model_nc.yaml
+model_config: configs/model_backprop.yaml
+# model_config: configs/model_nc.yaml
 
 runs:
   - strategy: repeated_holdout

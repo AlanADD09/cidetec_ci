@@ -12,8 +12,8 @@ from src.evaluation.reporter import save_confusion_matrix
 
 def main(args):
     cfg_master = load_yaml(args.config)
-    data_cfg  = DataConfig(**load_yaml(cfg_master.get("data_config", "configs/data.yaml")))
-    #data_cfg  = DataConfig(**load_yaml(cfg_master.get("data_config", "configs/data_water.yaml")))
+    # data_cfg  = DataConfig(**load_yaml(cfg_master.get("data_config", "configs/data.yaml")))
+    data_cfg  = DataConfig(**load_yaml(cfg_master.get("data_config", "configs/data_water.yaml")))
     val_cfg   = ValidationConfig(**load_yaml(cfg_master.get("validation_config", "configs/validation.yaml")))
     model_cfg = ModelConfig(**load_yaml(args.model_config or cfg_master.get("model_config", "configs/model_knn.yaml")))
 

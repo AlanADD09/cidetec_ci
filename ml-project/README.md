@@ -11,6 +11,9 @@ pip install -r requirements.txt
 python scripts/prepare_data.py
 python scripts/train.py --model-config configs/model_knn.yaml
 python scripts/evaluate.py
+
+# Backpropagation classifier
+python scripts/train.py --model-config configs/model_backprop.yaml
 ```
 
 Estructura:
@@ -20,5 +23,10 @@ Estructura:
 - `scripts/`: puntos de entrada (CLI)
 - `experiments/`: artefactos de ejecuciones (modelos, métricas, figuras)
 - `notebooks/`: EDA y prototipos 
+
+Modelos disponibles:
+- `knn`: Clasificador k-vecinos de scikit-learn.
+- `nearest_centroid`: Clasificador de centroides cercanos.
+- `backprop`: Perceptrón multicapa implementado internamente con descenso por mini-batches y early stopping controlable vía `configs/model_backprop.yaml`.
 
 Licencia: MIT
