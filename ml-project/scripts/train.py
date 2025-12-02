@@ -18,15 +18,15 @@ def main(args):
     X = pd.read_parquet("data/processed/X.parquet")
     y = pd.read_parquet("data/processed/y.parquet")[data_cfg.target]
 
-    if val_cfg.strategy == "holdout":
-        X_train, X_test, y_train, y_test = holdout(
-            X, y,
-            test_size=val_cfg.holdout["test_size"],
-            random_state=val_cfg.holdout["random_state"],
-            stratify=val_cfg.holdout.get("stratify", True)
-        )
-    else:
-        raise NotImplementedError("Usa holdout o implementa KFold en cross_validate.py")
+    holdout_cfg = val_cfg.holdout or {}
+    if val_cfg.strategy != "holdout":
+        print(f"[WARN] Estrategia '{val_cfg.strategy}' no soportada en train.py; usando holdout simple.")
+    X_train, X_test, y_train, y_test = holdout(
+        X, y,
+        test_size=holdout_cfg.get("test_size", 0.2),
+        random_state=holdout_cfg.get("random_state", 42),
+        stratify=holdout_cfg.get("stratify", True)
+    )
 
     ensure_dir("experiments/runs")
     model_out = os.path.join("experiments/runs", f"model_{model_cfg.name}.joblib")

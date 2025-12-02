@@ -1,0 +1,7 @@
+name: "svm"
+params:
+  kernel: "rbf"
+  C: 1.0
+  gamma: "scale"
+  probability: true
+  random_state: 42

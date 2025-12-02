@@ -1,7 +1,11 @@
-# data_config: configs/data.yaml
+# Puedes sobrescribir estos valores con --data-config / --model-config al ejecutar el script.
 data_config: configs/data_water.yaml
-#model_config: configs/model_knn.yaml
-model_config: configs/model_backprop.yaml
+model_config: configs/model_svm.yaml
+
+# Ejemplos alternativos:
+# data_config: configs/data.yaml
+# model_config: configs/model_knn.yaml
+# model_config: configs/model_backprop.yaml
 # model_config: configs/model_nc.yaml
 
 runs:

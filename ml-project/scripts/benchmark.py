@@ -13,8 +13,16 @@ from src.evaluation.reporter import save_confusion_matrix
 def main(args):
     bench_cfg = load_yaml(args.benchmark_config)
 
-    data_cfg  = DataConfig(**load_yaml(bench_cfg["data_config"]))
-    model_cfg = ModelConfig(**load_yaml(bench_cfg["model_config"]))
+    data_config_path = args.data_config or bench_cfg.get("data_config")
+    model_config_path = args.model_config or bench_cfg.get("model_config")
+
+    if not data_config_path:
+        raise ValueError("Debe especificar un data_config ya sea en el YAML o vía --data-config")
+    if not model_config_path:
+        raise ValueError("Debe especificar un model_config ya sea en el YAML o vía --model-config")
+
+    data_cfg  = DataConfig(**load_yaml(data_config_path))
+    model_cfg = ModelConfig(**load_yaml(model_config_path))
     runs_cfg  = bench_cfg["runs"]
 
     set_seed(42)
@@ -104,5 +112,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--benchmark-config", default="configs/benchmark.yaml")
+    parser.add_argument("--benchmark-config", default="configs/benchmark.yaml", help="Ruta al YAML maestro del benchmark")
+    parser.add_argument("--data-config", default=None, help="Sobrescribe el data_config definido en el YAML")
+    parser.add_argument("--model-config", default=None, help="Sobrescribe el model_config definido en el YAML")
     main(parser.parse_args())

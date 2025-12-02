@@ -16,10 +16,11 @@ class DataConfig:
 @dataclass
 class ValidationConfig:
     strategy: str  # "holdout" | "kfold"
-    holdout: dict
-    kfold: dict
+    holdout: Optional[dict] = None
+    kfold: Optional[dict] = None
     loo: Optional[dict] = None
     repeated_holdout: Optional[dict] = None
+    repeated_kfold: Optional[dict] = None
 
 @dataclass
 class ModelConfig:
